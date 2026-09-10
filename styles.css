@@ -1,0 +1,26 @@
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: var(--font-base);
+
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    padding: 2.5rem;
+    padding-inline: var(--page-spacing);
+    background-color: var(--bg-secondary);
+    position: relative;
+}
+
+
+
+main {
+    flex: 1;
+}
+
+footer {
+    padding: 2.5rem;
+    background-color: var(--bg-secondary);
+}

@@ -17,14 +17,19 @@ function imgContent(i) {
 
 function updateDialogContent() {
   const dialogImg = document.getElementById("dialog-rendered");
+  const dialogPrice = document.getElementById("dialog-price");
 
   dialogImg.src = imageArray[currentIndex].src;
   dialogImg.alt = imageArray[currentIndex].alt;
   dialogImg.width = imageArray[currentIndex].width;
   dialogImg.height = imageArray[currentIndex].height;
 
+  dialogPrice.price = imageArray[currentIndex].price;
+
   document.getElementById("dialog-caption").textContent = imageArray[currentIndex].alt;
   document.getElementById("dialog-counter").textContent = `${currentIndex + 1} / ${imageArray.length} `;
+
+  document.getElementById("dialog-price").innerText = "$" + imageArray[currentIndex].price;
 }
 
 function renderDialog(event) {
