@@ -73,7 +73,7 @@
     align-items: center;
 
     img:first-of-type {
-        width: 75px;
+        width: 80px;
         height: 37px;
         object-fit: cover;
 
@@ -81,7 +81,7 @@
     }
 
     img:last-of-type {
-        width: 75px;
+        width: 80px;
         height: 37px;
         object-fit: cover;
 
@@ -104,7 +104,7 @@
     }
 
     35%, 50% {
-        transform: translateY(13.5px);
+        transform: translateY(12.5px);
     }
 }
 
@@ -114,7 +114,7 @@
     }
 
     35%, 50% {
-        transform: translateY(-13.5px);
+        transform: translateY(-12.5px);
     }
 }
 
