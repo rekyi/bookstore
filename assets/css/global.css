@@ -1,0 +1,76 @@
+/* #region css reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+/* #endregion */
+
+:root {
+    --text-main: #FFFFFF;
+
+    --bg-main: #06171E;
+    --bg-secondary: #09212A;
+    --footer-copyr: #a8b3b8;
+
+    --img-border: #194553e1;
+    --img-border-hover: #6bdde185;
+
+    --dialog-step: #FD5B4F;
+    --dialog-step-bg: #fd5b4f1a;
+    --dialog-step-hover: #fd5b4f33;
+    --dialog-close: #0D3240;
+    --dialog-close-hover: #124658;
+
+    --font-base: 'Figtree', sans-serif;
+    --font-500: 500;
+    --font-600: 600;
+    --font-700: 700;
+    --font-800: 800;
+    --page-spacing: clamp(1rem, 5vi, 4rem);
+}
+
+.light-mode {
+    --text-main: #2c2d30;
+
+    --bg-main: #ede8d0d7;
+    --bg-secondary: #e7d8bc;
+    --footer-copyr: #2A4350;
+
+    --img-border: #b68c64e1;
+    --img-border-hover: #e1966b85;
+
+    --dialog-step-bg: #f4f5f871;
+    --dialog-step-hover: #e4a84f38;
+    --dialog-close: #c7966ce1;
+    --dialog-close-hover: #e2b48cc4;
+}
