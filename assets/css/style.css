@@ -64,6 +64,9 @@ main {
     font-size: clamp(2.5rem, 1.814rem + 1.429vi, 3.5rem);
     text-align: center;
 
+    .h1-title {
+        font-size: clamp(0.85rem, 0.568rem + 0.909vi, 2rem);
+    }
 }
 
 .photo-grid {
@@ -321,6 +324,10 @@ main {
 
 .like-button:active {
     transform: scale(0.9);
+}
+
+.dialog-comments {
+    color: var(--text-main);
 }
 
 .comment-form {

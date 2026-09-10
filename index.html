@@ -58,7 +58,10 @@
 
     <main>
       <section class="photo-album">
-        <h1>I Have A Problem With Cat Memes</h1>
+        <h1>
+          I Have A Problem With Cat Memes<br />
+          <span class="h1-title">(but it's a bookstore)</span>
+        </h1>
         <div class="photo-grid" id="photo-grid"></div>
         <dialog class="dialog" id="image-dialog" aria-labelledby="dialog-caption">
           <div class="dialog-content">
@@ -124,8 +127,10 @@
             </div>
 
             <div class="dialog-comments">
-              <h3 class="comments-title">Comments:</h3>
-              <ul class="comments-list" id="comments-list"></ul>
+              <h3>Comments:</h3>
+              <ul class="comments-list" id="comments-list">
+                --Comments here--
+              </ul>
               <form class="comment-form" id="comment-form">
                 <input class="comment-input" type="text" placeholder="Your Comment..." required />
                 <button class="comment-submit" type="submit" aria-label="Kommentar senden">
