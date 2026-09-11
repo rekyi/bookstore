@@ -1,7 +1,5 @@
 let currentIndex = 0;
 
-console.log("Script startet neu");
-
 function renderImgs() {
   const contentRef = document.getElementById("photo-grid");
   let htmlContent = "";
@@ -27,11 +25,14 @@ function updateDialogContent() {
   dialogImg.height = imageArray[currentIndex].height;
 
   dialogPrice.price = imageArray[currentIndex].price;
+  dialogPrice.price = imageArray[currentIndex].likes;
 
   document.getElementById("dialog-caption").textContent = imageArray[currentIndex].alt;
   document.getElementById("dialog-counter").textContent = `${currentIndex + 1} / ${imageArray.length} `;
 
   document.getElementById("dialog-price").innerText = "$" + imageArray[currentIndex].price;
+
+  document.getElementById("like-count").innerText = imageArray[currentIndex].likes;
 
   renderComments();
 }
