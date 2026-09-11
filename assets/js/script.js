@@ -37,6 +37,17 @@ function updateDialogContent() {
   renderComments();
 }
 
+function likeCounter(like) {
+  const likeCountRef = document.getElementById("like-count");
+  const likeCountClick = document.getElementById("like-button");
+
+  imageArray[currentIndex].likes += like;
+
+  if (likeCountClick) {
+    likeCountRef;
+  }
+}
+
 function renderComments() {
   let commentRef = document.getElementById("comments-list");
   commentRef.innerHTML = "";
