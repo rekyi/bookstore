@@ -1,5 +1,7 @@
 let currentIndex = 0;
 
+console.log("Script startet neu");
+
 function renderImgs() {
   const contentRef = document.getElementById("photo-grid");
   let htmlContent = "";
@@ -30,6 +32,35 @@ function updateDialogContent() {
   document.getElementById("dialog-counter").textContent = `${currentIndex + 1} / ${imageArray.length} `;
 
   document.getElementById("dialog-price").innerText = "$" + imageArray[currentIndex].price;
+
+  renderComments();
+}
+
+function renderComments() {
+  let commentRef = document.getElementById("comments-list");
+  commentRef.innerHTML = "";
+
+  for (let i = 0; i < imageArray[currentIndex].comments.length; i++) {
+    commentRef.innerHTML += commentsTemplate(i);
+  }
+}
+
+function commentsTemplate(i) {
+  return `<li> 
+  <span>[${imageArray[currentIndex].comments[i].name}] </span>
+  <p>:${imageArray[currentIndex].comments[i].comment}</p>
+   </li>`;
+}
+
+function addComments() {
+  let inputContent = document.getElementById("comment-input");
+  let inputContentValue = inputContent.value;
+
+  imageArray[currentIndex].comments.push({ name: "Test", comment: inputContentValue });
+
+  inputContent.value = "";
+
+  renderComments();
 }
 
 function renderDialog(event) {
