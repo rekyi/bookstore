@@ -5,47 +5,53 @@ function renderImgs() {
   let htmlContent = "";
 
   for (let i = 0; i < imageArray.length; i++) {
-    htmlContent += imgContent(i);
+    htmlContent += imgContentTemplate(i);
   }
   contentRef.innerHTML = htmlContent;
 }
 
-function imgContent(i) {
-  return `<button class="img-btn" data-index="${i}" type="button">
-    <img src="${imageArray[i].src}" alt="${imageArray[i].alt}" width="${imageArray[i].width}" height="${imageArray[i].height}" loading="lazy" /> </button>`;
-}
-
-function updateDialogContent() {
+function updateDialogImage() {
   const dialogImg = document.getElementById("dialog-rendered");
-  const dialogPrice = document.getElementById("dialog-price");
-
   dialogImg.src = imageArray[currentIndex].src;
   dialogImg.alt = imageArray[currentIndex].alt;
   dialogImg.width = imageArray[currentIndex].width;
   dialogImg.height = imageArray[currentIndex].height;
+}
 
-  dialogPrice.price = imageArray[currentIndex].price;
-  dialogPrice.price = imageArray[currentIndex].likes;
-
+function updateDialogInfo() {
   document.getElementById("dialog-caption").textContent = imageArray[currentIndex].alt;
   document.getElementById("dialog-counter").textContent = `${currentIndex + 1} / ${imageArray.length} `;
-
   document.getElementById("dialog-price").innerText = "$" + imageArray[currentIndex].price;
+}
 
-  document.getElementById("like-count").innerText = imageArray[currentIndex].likes;
+function updateDialogLikes() {
+  const likeBtn = document.getElementById("like-button");
+  const likeCountRef = document.getElementById("like-count");
 
+  likeBtn.classList.toggle("is-liked", imageArray[currentIndex].liked === true);
+  likeCountRef.innerText = imageArray[currentIndex].likes;
+}
+
+function updateDialogContent() {
+  updateDialogImage();
+  updateDialogInfo();
+  updateDialogLikes();
   renderComments();
 }
 
-function likeCounter(like) {
-  const likeCountRef = document.getElementById("like-count");
-  const likeCountClick = document.getElementById("like-button");
-
-  imageArray[currentIndex].likes += like;
-
-  if (likeCountClick) {
-    likeCountRef;
+function toggleLike() {
+  if (imageArray[currentIndex].liked === true) {
+    imageArray[currentIndex].liked = false;
+    imageArray[currentIndex].likes -= 1;
+  } else {
+    imageArray[currentIndex].liked = true;
+    imageArray[currentIndex].likes += 1;
   }
+}
+
+function likeCounter() {
+  toggleLike();
+  updateDialogLikes();
 }
 
 function renderComments() {
@@ -57,21 +63,13 @@ function renderComments() {
   }
 }
 
-function commentsTemplate(i) {
-  return `<li> 
-  <span>[${imageArray[currentIndex].comments[i].name}] </span>
-  <p>:${imageArray[currentIndex].comments[i].comment}</p>
-   </li>`;
-}
-
 function addComments() {
   let inputContent = document.getElementById("comment-input");
   let inputContentValue = inputContent.value;
 
-  imageArray[currentIndex].comments.push({ name: "Test", comment: inputContentValue });
+  imageArray[currentIndex].comments.push({ name: "Username", comment: inputContentValue });
 
   inputContent.value = "";
-
   renderComments();
 }
 
@@ -106,13 +104,9 @@ function onBackdropClick(event) {
 
 function init() {
   renderImgs();
-
   document.getElementById("photo-grid").addEventListener("click", renderDialog);
-
   document.getElementById("dialog-back").addEventListener("click", () => changeDialog(-1));
-
   document.getElementById("dialog-next").addEventListener("click", () => changeDialog(1));
-
   document.getElementById("image-dialog").addEventListener("click", onBackdropClick);
 }
 
