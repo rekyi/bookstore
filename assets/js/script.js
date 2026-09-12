@@ -73,9 +73,7 @@ function renderComments() {
 }
 function addComments() {
   let inputContent = document.getElementById("comment-input");
-  let inputContentValue = inputContent.value.trim();
-
-  if (!inputContentValue) return;
+  let inputContentValue = inputContent.value;
 
   imageArray[currentIndex].comments.unshift({ name: "Username", comment: inputContentValue });
 
