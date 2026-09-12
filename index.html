@@ -12,17 +12,18 @@
 
     <script src="assets/js/data.js" defer></script>
     <script src="assets/js/template.js"></script>
-    <script src="assets/js/script.js" defer></script>
+    <script src="script.js" defer></script>
   </head>
   <body>
-    <header>
-      <div class="header-content">
-        <div class="logo-group">
-          <img src="assets/images/bookstore_logo.webp" alt="" width="289" height="263" aria-hidden="true" />
-          <span>Bookstore</span>
-        </div>
-      </div>
-    </header>
+   <header>
+  <div class="header-content">
+    <div class="logo-group">
+      <img src="assets/images/bookstore_logo.webp" alt="" width="289" height="263" aria-hidden="true" />
+      <span>Bookstore</span>
+    </div>
+    <button id="show-favorites" type="button">Favorites</button>
+  </div>
+</header>
 
     <main>
       <section class="photo-album">
@@ -111,6 +112,19 @@
                 </button>
               </form>
             </div>
+          </div>
+        </dialog>
+          </dialog>
+
+        <dialog class="dialog" id="favorites-dialog" aria-labelledby="favorites-title">
+          <div class="dialog-content">
+            <header class="dialog-header">
+              <form method="dialog">
+                <button class="dialog-close" aria-label="Close dialog">×</button>
+              </form>
+            </header>
+            <h2 id="favorites-title">Your Favorites</h2>
+            <div class="photo-grid" id="favorites-grid"></div>
           </div>
         </dialog>
       </section>

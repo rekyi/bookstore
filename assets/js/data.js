@@ -6,6 +6,7 @@ const imageArray = [
     height: 849,
     likes: 1240,
     liked: true,
+    favorite: false,
     price: 24.99,
     comments: [
       { name: "Alice", comment: "Brave kitty!" },
@@ -19,6 +20,7 @@ const imageArray = [
     height: 850,
     likes: 892,
     liked: false,
+    favorite: false,
     price: 15.5,
     comments: [
       { name: "Sarah", comment: "Oh lawd he comin!" },
@@ -32,6 +34,7 @@ const imageArray = [
     height: 808,
     likes: 3450,
     liked: true,
+    favorite: false,
     price: 39.99,
     comments: [
       { name: "Emma", comment: "Yer a wizard, kitty!" },
@@ -45,6 +48,7 @@ const imageArray = [
     height: 819,
     likes: 2100,
     liked: false,
+    favorite: false,
     price: 45.0,
     comments: [
       { name: "Chloe", comment: "Bonjour minou!" },
@@ -58,6 +62,7 @@ const imageArray = [
     height: 726,
     likes: 4120,
     liked: true,
+    favorite: false,
     price: 29.5,
     comments: [
       { name: "Marco", comment: "An Italian feast!" },
@@ -71,6 +76,7 @@ const imageArray = [
     height: 568,
     likes: 1560,
     liked: false,
+    favorite: false,
     price: 19.99,
     comments: [
       { name: "Tom", comment: "Working hard for the treats!" },
@@ -84,6 +90,7 @@ const imageArray = [
     height: 736,
     likes: 980,
     liked: true,
+    favorite: false,
     price: 12.0,
     comments: [
       { name: "Sam", comment: "Sugar rush incoming." },
@@ -97,6 +104,7 @@ const imageArray = [
     height: 850,
     likes: 2750,
     liked: true,
+    favorite: false,
     price: 22.9,
     comments: [
       { name: "Oliver", comment: "Breakfast of champions!" },
@@ -110,6 +118,7 @@ const imageArray = [
     height: 568,
     likes: 640,
     liked: false,
+    favorite: false,
     price: 18.75,
     comments: [
       { name: "James", comment: "Very polite gentleman." },
@@ -123,6 +132,7 @@ const imageArray = [
     height: 812,
     likes: 5320,
     liked: true,
+    favorite: false,
     price: 35.0,
     comments: [
       { name: "Ryan", comment: "What did he just see?!" },
@@ -136,6 +146,7 @@ const imageArray = [
     height: 850,
     likes: 1890,
     liked: false,
+    favorite: false,
     price: 27.5,
     comments: [
       { name: "Kevin", comment: "Me on Monday mornings." },
@@ -149,6 +160,7 @@ const imageArray = [
     height: 691,
     likes: 4800,
     liked: true,
+    favorite: false,
     price: 42.0,
     comments: [
       { name: "Ethan", comment: "The drama in this picture!" },
