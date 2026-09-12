@@ -81,6 +81,15 @@ function renderComments() {
     commentRef.innerHTML += commentsTemplate(i);
   }
 }
+function addComments() {
+  let inputContent = document.getElementById("comment-input");
+  let inputContentValue = inputContent.value;
+
+  imageArray[currentIndex].comments.unshift({ name: "Username", comment: inputContentValue });
+
+  inputContent.value = "";
+  renderComments();
+}
 
 function onBackdropClick(event) {
   const closeDialogOutside = document.getElementById("image-dialog");

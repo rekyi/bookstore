@@ -338,6 +338,33 @@ main {
 
 .dialog-comments {
     color: var(--text-main);
+
+    h3 {
+        text-align: center;
+    }
+
+    p {
+        margin-left: 1rem;
+    }
+}
+
+.dialog-comments ul {
+    list-style-type: none;
+    max-height: 4.8rem;
+    overflow-y: auto;
+}
+
+.dialog-comments ul::-webkit-scrollbar {
+    width: 6px;
+}
+
+.dialog-comments ul::-webkit-scrollbar-thumb {
+    background-color: #e4494949;
+    border-radius: 10px;
+}
+
+.dialog-comments ul::-webkit-scrollbar-thumb:hover {
+    background-color: #a33333a6;
 }
 
 .comment-form {
