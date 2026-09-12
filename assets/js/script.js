@@ -63,18 +63,6 @@ function updateLikeDisplay() {
   likeCountRef.innerText = imageArray[currentIndex].likes;
 }
 
-function addComments() {
-  let inputContent = document.getElementById("comment-input");
-  let inputContentValue = inputContent.value;
-
-  imageArray[currentIndex].comments.push({ name: "Username", comment: inputContentValue });
-
-  inputContent.value = "";
-  renderComments();
-
-  //empty input prevention
-}
-
 function renderComments() {
   let commentRef = document.getElementById("comments-list");
   commentRef.innerHTML = "";
@@ -85,7 +73,9 @@ function renderComments() {
 }
 function addComments() {
   let inputContent = document.getElementById("comment-input");
-  let inputContentValue = inputContent.value;
+  let inputContentValue = inputContent.value.trim();
+
+  if (!inputContentValue) return;
 
   imageArray[currentIndex].comments.unshift({ name: "Username", comment: inputContentValue });
 
@@ -117,6 +107,12 @@ function init() {
     toggleLike();
     updateLikeDisplay();
   });
+
+  document.getElementById("comment-form").addEventListener("submit", (event) => {
+    event.preventDefault();
+    addComments();
+  });
+
   document.getElementById("image-dialog").addEventListener("click", onBackdropClick);
 }
 
