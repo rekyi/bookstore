@@ -4,6 +4,18 @@ function saveToLocalStorage() {
   localStorage.setItem("imageArray", JSON.stringify(imageArray));
 }
 
+function getFromLocalStorage() {
+  let savedData = JSON.parse(localStorage.getItem("imageArray")) ?? [];
+
+  if (!savedData.length) return;
+
+  for (let i = 0; i < imageArray.length; i++) {
+    imageArray[i].likes = savedData[i].likes;
+    imageArray[i].liked = savedData[i].liked;
+    imageArray[i].comments = savedData[i].comments;
+  }
+}
+
 function renderImgs() {
   const contentRef = document.getElementById("photo-grid");
   let htmlContent = "";
@@ -104,8 +116,7 @@ function updateDialogContent() {
   renderComments();
 }
 
-function init() {
-  renderImgs();
+function registerEventListeners() {
   document.getElementById("photo-grid").addEventListener("click", renderDialog);
   document.getElementById("dialog-back").addEventListener("click", () => changeDialog(-1));
   document.getElementById("dialog-next").addEventListener("click", () => changeDialog(1));
@@ -120,6 +131,12 @@ function init() {
   });
 
   document.getElementById("image-dialog").addEventListener("click", onBackdropClick);
+}
+
+function init() {
+  getFromLocalStorage();
+  renderImgs();
+  registerEventListeners();
 }
 
 init();
