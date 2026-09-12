@@ -126,7 +126,7 @@ const imageArray = [
     price: 35.0,
     comments: [
       { name: "Ryan", comment: "What did he just see?!" },
-      { name: "Mia", comment: "Perfect reaction meme material." },
+      { name: "Mia", comment: "Perfect reaction!" },
     ],
   },
   {

@@ -199,23 +199,18 @@ main {
     }
 }
 
-.dialog-image-wrapper {
+.dialog-nav {
+    margin: 1rem;
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-
-    @media (min-width: 768px) {
-        gap: 2rem;
-        margin-bottom: 3rem;
-    }
+    align-items: center;
+    gap: 3.5rem;
 }
 
 .dialog-back,
 .dialog-next {
-    width: 45px;
-    height: 45px;
+    width: 35px;
+    height: 35px;
     color: var(--dialog-step);
     background-color: var(--dialog-step-bg);
     border-radius: 100px;
@@ -234,8 +229,8 @@ main {
     }
 
     @media (min-width: 768px) {
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
     }
 }
 
@@ -244,17 +239,13 @@ main {
 }
 
 .dialog-counter {
-    display: block;
-    padding-bottom: 1rem;
     min-width: 3rem;
-
     color: var(--text-main);
     font-weight: var(--font-500);
     font-size: 1rem;
     text-align: center;
 
     @media (min-width: 768px) {
-        padding-bottom: 2rem;
         font-size: 1.25rem;
         min-width: 4rem;
     }
@@ -343,8 +334,38 @@ main {
         text-align: center;
     }
 
+    ul {
+        list-style-type: none;
+        max-height: 4.8rem;
+        overflow-y: auto;
+        padding-right: 1rem;
+    }
+
+    li {
+        margin-bottom: 1rem;
+
+        @media (min-width: 768px) {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+    }
+
+    span {
+        @media (min-width: 768px) {
+            width: 8rem;
+            flex-shrink: 0;
+        }
+    }
+
     p {
-        margin-left: 1rem;
+        margin: 0;
+        overflow-wrap: anywhere;
+
+        @media (min-width: 768px) {
+            flex: 1;
+            text-align: left;
+        }
     }
 }
 

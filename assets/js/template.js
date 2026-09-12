@@ -5,7 +5,7 @@ function imgContentTemplate(i) {
 
 function commentsTemplate(i) {
   return `<li>
-  <span>[${imageArray[currentIndex].comments[i].name}] </span>
-  <p>: ${imageArray[currentIndex].comments[i].comment}</p>
+  <span>${imageArray[currentIndex].comments[i].name}: </span>
+  <p> ${imageArray[currentIndex].comments[i].comment}</p>
    </li>`;
 }
