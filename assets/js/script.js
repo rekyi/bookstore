@@ -71,6 +71,8 @@ function addComments() {
 
   inputContent.value = "";
   renderComments();
+
+  //empty input prevention
 }
 
 function renderComments() {
