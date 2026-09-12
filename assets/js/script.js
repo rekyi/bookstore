@@ -1,5 +1,9 @@
 let currentIndex = 0;
 
+function saveToLocalStorage() {
+  localStorage.setItem("imageArray", JSON.stringify(imageArray));
+}
+
 function renderImgs() {
   const contentRef = document.getElementById("photo-grid");
   let htmlContent = "";
@@ -53,6 +57,7 @@ function toggleLike() {
     imageArray[currentIndex].liked = true;
     imageArray[currentIndex].likes += 1;
   }
+  saveToLocalStorage();
 }
 
 function updateLikeDisplay() {
@@ -73,12 +78,15 @@ function renderComments() {
 }
 function addComments() {
   let inputContent = document.getElementById("comment-input");
-  let inputContentValue = inputContent.value;
+  let inputContentValue = inputContent.value.trim();
+
+  if (!inputContentValue) return;
 
   imageArray[currentIndex].comments.unshift({ name: "Username", comment: inputContentValue });
 
   inputContent.value = "";
   renderComments();
+  saveToLocalStorage();
 }
 
 function onBackdropClick(event) {
