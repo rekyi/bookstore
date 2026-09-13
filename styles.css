@@ -279,8 +279,10 @@ main {
     background: rgba(0, 0, 0, 0.425);
     border: none;
     color: #d13d3d;
-    font-size: 2rem;
-    line-height: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     cursor: pointer;
     transition: transform 0.1s ease;
@@ -292,6 +294,21 @@ main {
 
 .favorite-button:active {
     transform: scale(0.9);
+}
+
+.favorite-icon {
+    width: 26px;
+    height: 26px;
+}
+
+.favorite-icon path {
+    stroke: currentColor;
+    fill: none;
+    transition: fill 0.15s ease;
+}
+
+.favorite-button.is-favorite .favorite-icon path {
+    fill: currentColor;
 }
 
 .dialog-img {

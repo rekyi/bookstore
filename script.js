@@ -12,6 +12,7 @@ function getFromLocalStorage() {
   for (let i = 0; i < imageArray.length; i++) {
     imageArray[i].likes = savedData[i].likes;
     imageArray[i].liked = savedData[i].liked;
+    imageArray[i].favorite = savedData[i].favorite;
     imageArray[i].comments = savedData[i].comments;
   }
 }
@@ -59,6 +60,17 @@ function updateDialogInfo() {
   document.getElementById("dialog-caption").textContent = imageArray[currentIndex].alt;
   document.getElementById("dialog-counter").textContent = `${currentIndex + 1} / ${imageArray.length} `;
   document.getElementById("dialog-price").innerText = "$" + imageArray[currentIndex].price;
+}
+
+function toggleFavorite() {
+  imageArray[currentIndex].favorite = !imageArray[currentIndex].favorite;
+  saveToLocalStorage();
+}
+
+function updateFavoriteDisplay() {
+  const favBtn = document.getElementById("favorite-button");
+
+  favBtn.classList.toggle("is-favorite", imageArray[currentIndex].favorite === true);
 }
 
 function toggleLike() {
@@ -113,6 +125,7 @@ function onBackdropClick(event) {
 function updateDialogContent() {
   updateDialogImage();
   updateDialogInfo();
+  updateFavoriteDisplay();
   updateLikeDisplay();
   renderComments();
 }
@@ -121,6 +134,10 @@ function registerEventListeners() {
   document.getElementById("photo-grid").addEventListener("click", renderDialog);
   document.getElementById("dialog-back").addEventListener("click", () => changeDialog(-1));
   document.getElementById("dialog-next").addEventListener("click", () => changeDialog(1));
+  document.getElementById("favorite-button").addEventListener("click", () => {
+    toggleFavorite();
+    updateFavoriteDisplay();
+  });
   document.getElementById("like-button").addEventListener("click", () => {
     toggleLike();
     updateLikeDisplay();
