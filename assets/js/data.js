@@ -168,3 +168,5 @@ const imageArray = [
     ],
   },
 ];
+
+const inputNames = ["Bingus", "Floppa", "Chonk", "Blep", "Purrrcy", "Catrick", "Clawdia", "Pawl", "Lucifurr", "Meowly"];

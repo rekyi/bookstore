@@ -91,10 +91,11 @@ function renderComments() {
 function addComments() {
   let inputContent = document.getElementById("comment-input");
   let inputContentValue = inputContent.value.trim();
+  let randomIndex = Math.floor(Math.random() * inputNames.length);
 
   if (!inputContentValue) return;
 
-  imageArray[currentIndex].comments.unshift({ name: "Username", comment: inputContentValue });
+  imageArray[currentIndex].comments.unshift({ name: inputNames[randomIndex], comment: inputContentValue });
 
   inputContent.value = "";
   renderComments();

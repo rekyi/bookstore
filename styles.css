@@ -279,7 +279,6 @@ main {
     @media (min-width:768px) {
         margin-bottom: 2rem;
         max-height: 40vh;
-        /* Ersetze 'none' durch 40vh */
         aspect-ratio: 16 / 13;
     }
 }
@@ -346,7 +345,6 @@ main {
     display: flex;
     flex-direction: column;
     flex: 1;
-    /* Neu: Nimmt den restlichen vertikalen Platz ein */
     min-height: 0;
 
     h3 {
@@ -354,7 +352,7 @@ main {
         font-size: 1.15rem;
         margin-bottom: 0.5rem;
         padding-bottom: 0.35rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         flex-shrink: 0;
     }
 
