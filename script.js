@@ -1,5 +1,6 @@
 let currentIndex = 0;
 
+// localStorage
 function saveToLocalStorage() {
   localStorage.setItem("imageArray", JSON.stringify(imageArray));
 }
@@ -17,6 +18,7 @@ function getFromLocalStorage() {
   }
 }
 
+// Render grid
 function renderImgs() {
   const contentRef = document.getElementById("photo-grid");
   let htmlContent = "";
@@ -27,6 +29,7 @@ function renderImgs() {
   contentRef.innerHTML = htmlContent;
 }
 
+// Dialog-Functions
 function renderDialog(event) {
   const target = event.target.closest("button");
 
@@ -48,6 +51,22 @@ function changeDialog(step) {
   updateDialogContent();
 }
 
+function onBackdropClick(event) {
+  const closeDialogOutside = document.getElementById("image-dialog");
+
+  if (event.target === closeDialogOutside) {
+    closeDialogOutside.close();
+  }
+}
+
+function updateDialogContent() {
+  updateDialogImage();
+  updateDialogInfo();
+  updateFavoriteDisplay();
+  updateLikeDisplay();
+  renderComments();
+}
+
 function updateDialogImage() {
   const dialogImg = document.getElementById("dialog-rendered");
   dialogImg.src = imageArray[currentIndex].src;
@@ -62,6 +81,7 @@ function updateDialogInfo() {
   document.getElementById("dialog-price").innerText = "$" + imageArray[currentIndex].price;
 }
 
+// Favorite-Functions
 function toggleFavorite() {
   imageArray[currentIndex].favorite = !imageArray[currentIndex].favorite;
   saveToLocalStorage();
@@ -73,6 +93,19 @@ function updateFavoriteDisplay() {
   favBtn.classList.toggle("is-favorite", imageArray[currentIndex].favorite === true);
 }
 
+function renderFavorites() {
+  const favBookRef = document.getElementById("favorites-grid");
+  let htmlContent = "";
+
+  for (let i = 0; i < imageArray.length; i++) {
+    if (imageArray[i].favorite === true) {
+      htmlContent += imgContentTemplate(i);
+    }
+  }
+  favBookRef.innerHTML = htmlContent;
+}
+
+// Like-Functions
 function toggleLike() {
   if (imageArray[currentIndex].liked === true) {
     imageArray[currentIndex].liked = false;
@@ -92,14 +125,7 @@ function updateLikeDisplay() {
   likeCountRef.innerText = imageArray[currentIndex].likes;
 }
 
-function renderComments() {
-  let commentRef = document.getElementById("comments-list");
-  commentRef.innerHTML = "";
-
-  for (let i = 0; i < imageArray[currentIndex].comments.length; i++) {
-    commentRef.innerHTML += commentsTemplate(i);
-  }
-}
+// Comment-Functions
 function addComments() {
   let inputContent = document.getElementById("comment-input");
   let inputContentValue = inputContent.value.trim();
@@ -114,47 +140,64 @@ function addComments() {
   saveToLocalStorage();
 }
 
-function onBackdropClick(event) {
-  const closeDialogOutside = document.getElementById("image-dialog");
+function renderComments() {
+  let commentRef = document.getElementById("comments-list");
+  commentRef.innerHTML = "";
 
-  if (event.target === closeDialogOutside) {
-    closeDialogOutside.close();
+  for (let i = 0; i < imageArray[currentIndex].comments.length; i++) {
+    commentRef.innerHTML += commentsTemplate(i);
   }
 }
 
-function updateDialogContent() {
-  updateDialogImage();
-  updateDialogInfo();
-  updateFavoriteDisplay();
-  updateLikeDisplay();
-  renderComments();
+// Event-Listener
+function GridListeners() {
+  document.getElementById("photo-grid").addEventListener("click", renderDialog);
+  document.getElementById("show-favorites").addEventListener("click", () => {
+    renderFavorites();
+    document.getElementById("favorites-dialog").showModal();
+  });
 }
 
-function registerEventListeners() {
-  document.getElementById("photo-grid").addEventListener("click", renderDialog);
+function DialogNavListeners() {
   document.getElementById("dialog-back").addEventListener("click", () => changeDialog(-1));
   document.getElementById("dialog-next").addEventListener("click", () => changeDialog(1));
+  document.getElementById("image-dialog").addEventListener("click", onBackdropClick);
+}
+
+function FavoriteListener() {
   document.getElementById("favorite-button").addEventListener("click", () => {
     toggleFavorite();
     updateFavoriteDisplay();
   });
+}
+
+function LikeListener() {
   document.getElementById("like-button").addEventListener("click", () => {
     toggleLike();
     updateLikeDisplay();
   });
+}
 
+function CommentListener() {
   document.getElementById("comment-form").addEventListener("submit", (event) => {
     event.preventDefault();
     addComments();
   });
-
-  document.getElementById("image-dialog").addEventListener("click", onBackdropClick);
 }
 
+function EventListeners() {
+  GridListeners();
+  DialogNavListeners();
+  FavoriteListener();
+  LikeListener();
+  CommentListener();
+}
+
+//  Setup
 function init() {
   getFromLocalStorage();
   renderImgs();
-  registerEventListeners();
+  EventListeners();
 }
 
 init();
