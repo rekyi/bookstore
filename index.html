@@ -15,15 +15,15 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-   <header>
-  <div class="header-content">
-    <div class="logo-group">
-      <img src="assets/images/bookstore_logo.webp" alt="" width="289" height="263" aria-hidden="true" />
-      <span>Bookstore</span>
-    </div>
-    <button id="show-favorites" type="button">Favorites</button>
-  </div>
-</header>
+    <header>
+      <div class="header-content">
+        <div class="logo-group">
+          <img src="assets/images/bookstore_logo.webp" alt="" width="289" height="263" aria-hidden="true" />
+          <span>Bookstore</span>
+        </div>
+        <button id="show-favorites" type="button">Favorites</button>
+      </div>
+    </header>
 
     <main>
       <section class="photo-album">
@@ -51,7 +51,10 @@
                 <h2 class="dialog-title" id="dialog-caption">Dialog heading</h2>
               </figcaption>
 
-              <img class="dialog-img" id="dialog-rendered" alt="" />
+              <div class="dialog-img-wrapper">
+                <img class="dialog-img" id="dialog-rendered" alt="" />
+                <button class="favorite-button" id="favorite-button" aria-label="Favorite">☆</button>
+              </div>
 
               <div class="dialog-nav">
                 <button class="dialog-back" id="dialog-back" aria-label="Previous image">
@@ -114,7 +117,6 @@
             </div>
           </div>
         </dialog>
-          </dialog>
 
         <dialog class="dialog" id="favorites-dialog" aria-labelledby="favorites-title">
           <div class="dialog-content">
