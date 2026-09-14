@@ -11,14 +11,16 @@ function getFromLocalStorage() {
   if (!savedData.length) return;
 
   for (let i = 0; i < imageArray.length; i++) {
-    imageArray[i].likes = savedData[i].likes;
-    imageArray[i].liked = savedData[i].liked;
-    imageArray[i].favorite = savedData[i].favorite;
-    imageArray[i].comments = savedData[i].comments;
+    if (savedData[i]) {
+      imageArray[i].likes = savedData[i].likes;
+      imageArray[i].liked = savedData[i].liked;
+      imageArray[i].favorite = savedData[i].favorite;
+      imageArray[i].comments = savedData[i].comments;
+    }
   }
 }
 
-// Render grid
+// Render-Grid
 function renderImgs() {
   const contentRef = document.getElementById("photo-grid");
   let htmlContent = "";
@@ -76,7 +78,7 @@ function updateDialogImage() {
 }
 
 function updateDialogInfo() {
-  document.getElementById("dialog-caption").textContent = imageArray[currentIndex].alt;
+  document.getElementById("dialog-caption").textContent = imageArray[currentIndex].title;
   document.getElementById("dialog-counter").textContent = `${currentIndex + 1} / ${imageArray.length} `;
   document.getElementById("dialog-price").innerText = "$" + imageArray[currentIndex].price;
 }
@@ -193,7 +195,7 @@ function EventListeners() {
   CommentListener();
 }
 
-//  Setup
+// Setup
 function init() {
   getFromLocalStorage();
   renderImgs();

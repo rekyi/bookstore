@@ -21,7 +21,7 @@
           <img src="assets/images/bookstore_logo.webp" alt="" width="289" height="263" aria-hidden="true" />
           <span>Bookstore</span>
         </div>
-        <button id="show-favorites" type="button">Favorites</button>
+        <button id="show-favorites" type="button">Reading List</button>
       </div>
     </header>
 
@@ -46,78 +46,82 @@
                 </button>
               </form>
             </header>
-            <figure>
-              <figcaption>
-                <h2 class="dialog-title" id="dialog-caption">Dialog heading</h2>
-              </figcaption>
 
-              <div class="dialog-img-wrapper">
-                <img class="dialog-img" id="dialog-rendered" alt="" />
-                <button class="favorite-button" id="favorite-button" aria-label="Favorite">
-                  <svg class="favorite-icon" viewBox="0 0 24 24">
-                    <path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.2l7.1-.6L12 2z" stroke-width="1.5" fill="none" />
-                  </svg>
-                </button>
+            <div class="dialog-columns">
+              <figure>
+                <div class="dialog-img-wrapper">
+                  <img class="dialog-img" id="dialog-rendered" alt="" />
+                  <figcaption>
+                    <h2 class="dialog-title" id="dialog-caption">Dialog heading</h2>
+                  </figcaption>
+                  <button class="favorite-button" id="favorite-button" aria-label="Favorite">
+                    <svg class="favorite-icon" viewBox="0 0 24 24">
+                      <path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.2l7.1-.6L12 2z" stroke-width="1.5" fill="none" />
+                    </svg>
+                  </button>
+                </div>
+
+                <div class="dialog-nav">
+                  <button class="dialog-back" id="dialog-back" aria-label="Previous image">
+                    <svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <path
+                        d="M12.8028 0.292893C12.4123 -0.0976311 11.7791 -0.0976311 11.3886 0.292893C10.9981 0.683417 10.9981 1.31658 11.3886 1.70711L18.1673 8.48584H1C0.447715 8.48584 0 8.93355 0 9.48584C0 10.0381 0.447715 10.4858 1 10.4858H18.1662L11.3886 17.2635C10.9981 17.654 10.9981 18.2871 11.3886 18.6777C11.7791 19.0682 12.4123 19.0682 12.8028 18.6777L21.2614 10.2191C21.4582 10.0364 21.5814 9.77553 21.5814 9.48584C21.5814 9.29694 21.529 9.12027 21.438 8.96957C21.3969 8.90137 21.3469 8.83702 21.2881 8.77817L12.8028 0.292893Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </button>
+
+                  <span class="dialog-counter" id="dialog-counter"></span>
+
+                  <button class="dialog-next" id="dialog-next" aria-label="Next image">
+                    <svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <path
+                        d="M12.8028 0.292893C12.4123 -0.0976311 11.7791 -0.0976311 11.3886 0.292893C10.9981 0.683417 10.9981 1.31658 11.3886 1.70711L18.1673 8.48584H1C0.447715 8.48584 0 8.93355 0 9.48584C0 10.0381 0.447715 10.4858 1 10.4858H18.1662L11.3886 17.2635C10.9981 17.654 10.9981 18.2871 11.3886 18.6777C11.7791 19.0682 12.4123 19.0682 12.8028 18.6777L21.2614 10.2191C21.4582 10.0364 21.5814 9.77553 21.5814 9.48584C21.5814 9.29694 21.529 9.12027 21.438 8.96957C21.3969 8.90137 21.3469 8.83702 21.2881 8.77817L12.8028 0.292893Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </figure>
+
+              <div class="dialog-details">
+                <div class="dialog-action-bar">
+                  <span class="dialog-price" id="dialog-price"></span>
+                  <div class="dialog-likes">
+                    <span class="like-count" id="like-count"></span>
+                    <button class="like-button" id="like-button" aria-label="Like">
+                      <svg class="checkmark" viewBox="0 0 256 256">
+                        <path
+                          d="M224.6,51.9a59.5,59.5,0,0,0-43-19.9,60.5,60.5,0,0,0-44,17.6L128,59.1l-7.5-7.4C97.2,28.3,59.2,26.3,35.9,47.4a59.9,59.9,0,0,0-2.3,87l83.1,83.1a15.9,15.9,0,0,0,22.6,0l81-81C243.7,113.2,245.6,75.2,224.6,51.9Z"
+                          stroke-width="12"
+                          fill="none"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="dialog-comments">
+                  <h3>Comments:</h3>
+                  <ul class="comments-list" id="comments-list">
+                    --Comments here--
+                  </ul>
+                  <form class="comment-form" id="comment-form">
+                    <input class="comment-input" id="comment-input" type="text" placeholder="Your Comment ..." required />
+                    <button class="comment-submit" type="submit" aria-label="Submit Comment">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M10.4995 13.5001L20.9995 3.00005M10.6271 13.8281L13.2552 20.5861C13.4867 21.1815 13.6025 21.4791 13.7693 21.566C13.9139 21.6414 14.0862 21.6415 14.2308 21.5663C14.3977 21.4796 14.5139 21.1821 14.7461 20.587L21.3364 3.69925C21.5461 3.16207 21.6509 2.89348 21.5935 2.72185C21.5437 2.5728 21.4268 2.45583 21.2777 2.40604C21.1061 2.34871 20.8375 2.45352 20.3003 2.66315L3.41258 9.25349C2.8175 9.48572 2.51997 9.60183 2.43326 9.76873C2.35809 9.91342 2.35819 10.0857 2.43353 10.2303C2.52043 10.3971 2.81811 10.5128 3.41345 10.7444L10.1715 13.3725C10.2923 13.4195 10.3527 13.443 10.4036 13.4793C10.4487 13.5114 10.4881 13.5509 10.5203 13.596C10.5566 13.6468 10.5801 13.7073 10.6271 13.8281Z"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </button>
+                  </form>
+                </div>
               </div>
-
-              <div class="dialog-nav">
-                <button class="dialog-back" id="dialog-back" aria-label="Previous image">
-                  <svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <path
-                      d="M12.8028 0.292893C12.4123 -0.0976311 11.7791 -0.0976311 11.3886 0.292893C10.9981 0.683417 10.9981 1.31658 11.3886 1.70711L18.1673 8.48584H1C0.447715 8.48584 0 8.93355 0 9.48584C0 10.0381 0.447715 10.4858 1 10.4858H18.1662L11.3886 17.2635C10.9981 17.654 10.9981 18.2871 11.3886 18.6777C11.7791 19.0682 12.4123 19.0682 12.8028 18.6777L21.2614 10.2191C21.4582 10.0364 21.5814 9.77553 21.5814 9.48584C21.5814 9.29694 21.529 9.12027 21.438 8.96957C21.3969 8.90137 21.3469 8.83702 21.2881 8.77817L12.8028 0.292893Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </button>
-
-                <span class="dialog-counter" id="dialog-counter"></span>
-
-                <button class="dialog-next" id="dialog-next" aria-label="Next image">
-                  <svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <path
-                      d="M12.8028 0.292893C12.4123 -0.0976311 11.7791 -0.0976311 11.3886 0.292893C10.9981 0.683417 10.9981 1.31658 11.3886 1.70711L18.1673 8.48584H1C0.447715 8.48584 0 8.93355 0 9.48584C0 10.0381 0.447715 10.4858 1 10.4858H18.1662L11.3886 17.2635C10.9981 17.654 10.9981 18.2871 11.3886 18.6777C11.7791 19.0682 12.4123 19.0682 12.8028 18.6777L21.2614 10.2191C21.4582 10.0364 21.5814 9.77553 21.5814 9.48584C21.5814 9.29694 21.529 9.12027 21.438 8.96957C21.3969 8.90137 21.3469 8.83702 21.2881 8.77817L12.8028 0.292893Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </figure>
-
-            <div class="dialog-action-bar">
-              <span class="dialog-price" id="dialog-price"></span>
-              <div class="dialog-likes">
-                <span class="like-count" id="like-count"></span>
-                <button class="like-button" id="like-button" aria-label="Like">
-                  <svg class="checkmark" viewBox="0 0 256 256">
-                    <path
-                      d="M224.6,51.9a59.5,59.5,0,0,0-43-19.9,60.5,60.5,0,0,0-44,17.6L128,59.1l-7.5-7.4C97.2,28.3,59.2,26.3,35.9,47.4a59.9,59.9,0,0,0-2.3,87l83.1,83.1a15.9,15.9,0,0,0,22.6,0l81-81C243.7,113.2,245.6,75.2,224.6,51.9Z"
-                      stroke-width="12"
-                      fill="none"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            <div class="dialog-comments">
-              <h3>Comments:</h3>
-              <ul class="comments-list" id="comments-list">
-                --Comments here--
-              </ul>
-              <form class="comment-form" id="comment-form">
-                <input class="comment-input" id="comment-input" type="text" placeholder="Your Comment ..." required />
-                <button class="comment-submit" type="submit" aria-label="Submit Comment">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M10.4995 13.5001L20.9995 3.00005M10.6271 13.8281L13.2552 20.5861C13.4867 21.1815 13.6025 21.4791 13.7693 21.566C13.9139 21.6414 14.0862 21.6415 14.2308 21.5663C14.3977 21.4796 14.5139 21.1821 14.7461 20.587L21.3364 3.69925C21.5461 3.16207 21.6509 2.89348 21.5935 2.72185C21.5437 2.5728 21.4268 2.45583 21.2777 2.40604C21.1061 2.34871 20.8375 2.45352 20.3003 2.66315L3.41258 9.25349C2.8175 9.48572 2.51997 9.60183 2.43326 9.76873C2.35809 9.91342 2.35819 10.0857 2.43353 10.2303C2.52043 10.3971 2.81811 10.5128 3.41345 10.7444L10.1715 13.3725C10.2923 13.4195 10.3527 13.443 10.4036 13.4793C10.4487 13.5114 10.4881 13.5509 10.5203 13.596C10.5566 13.6468 10.5801 13.7073 10.6271 13.8281Z"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </button>
-              </form>
             </div>
           </div>
         </dialog>
