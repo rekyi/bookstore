@@ -58,19 +58,3 @@ p, h1, h2, h3, h4, h5, h6 {
     --font-800: 800;
     --page-spacing: clamp(1rem, 5vi, 4rem);
 }
-
-.light-mode {
-    --text-main: #2c2d30;
-
-    --bg-main: #ede8d0d7;
-    --bg-secondary: #e7d8bc;
-    --footer-copyr: #2A4350;
-
-    --img-border: #b68c64e1;
-    --img-border-hover: #e1966b85;
-
-    --dialog-step-bg: #f4f5f871;
-    --dialog-step-hover: #e4a84f38;
-    --dialog-close: #c7966ce1;
-    --dialog-close-hover: #e2b48cc4;
-}

@@ -1,6 +1,6 @@
 /* figtree-regular - latin */
 @font-face {
-    font-display: swap;
+    font-display: optional;
     font-family: 'Figtree';
     font-style: normal;
     font-weight: 400;
@@ -9,7 +9,7 @@
 
 /* figtree-500 - latin */
 @font-face {
-    font-display: swap;
+    font-display: optional;
     font-family: 'Figtree';
     font-style: normal;
     font-weight: 500;
@@ -18,7 +18,7 @@
 
 /* figtree-700 - latin */
 @font-face {
-    font-display: swap;
+    font-display: optional;
     font-family: 'Figtree';
     font-style: normal;
     font-weight: 700;
@@ -27,7 +27,7 @@
 
 /* figtree-800 - latin */
 @font-face {
-    font-display: swap;
+    font-display: optional;
     font-family: 'Figtree';
     font-style: normal;
     font-weight: 800;
@@ -36,7 +36,7 @@
 
 /* fredoka-regular - latin */
 @font-face {
-    font-display: swap;
+    font-display: optional;
     font-family: 'Fredoka';
     font-style: normal;
     font-weight: 400;

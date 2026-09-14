@@ -58,12 +58,10 @@ main {
 
 .photo-album {
     width: 100%;
-
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-
+    justify-content: flex-start;
     flex: 1;
 }
 
@@ -80,8 +78,8 @@ main {
 }
 
 .photo-grid {
+    width: 100%;
     max-width: 75rem;
-    min-height: 30rem;
     padding-block: 4rem 3.5rem;
 
     display: flex;
@@ -98,15 +96,16 @@ main {
     position: relative;
     width: calc((100% - 1rem) / 2);
     max-width: 150px;
+    aspect-ratio: 705 / 1125;
+
+    flex: 0 0 auto;
     background: transparent;
     border: none;
-
     cursor: pointer;
 
     img {
         width: 100%;
         height: auto;
-        aspect-ratio: 705 / 1125;
 
         border: 3px solid var(--img-border);
         border-radius: 16px;
@@ -114,7 +113,6 @@ main {
         object-position: top;
 
         display: block;
-
         transition: all 0.2s ease-in-out;
 
         &:hover {
@@ -690,7 +688,6 @@ footer {
         max-width: 45rem;
         padding: 2rem;
         position: relative;
-
     }
 
     .dialog-header {
