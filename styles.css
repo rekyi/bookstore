@@ -187,7 +187,7 @@ main {
 
     @media (min-width: 768px) {
         position: absolute;
-        top: 25px;
+        top: 40px;
         right: 25px;
     }
 }
@@ -633,7 +633,75 @@ footer {
     }
 }
 
-#favorites-grid:empty::after {
-    content: "No favorites yet.";
-    opacity: 0.7;
+#favorites-title {
+    color: var(--text-main);
+    font-family: var(--font-base);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+#favorites-grid {
+    flex: 1;
+    min-height: 0;
+    justify-content: center;
+    align-content: start;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0.5rem;
+    margin: -0.5rem;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #e4494949;
+        border-radius: 10px;
+
+        &:hover {
+            background-color: #a33333a6;
+        }
+    }
+
+    &:empty {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 3rem 1rem 1rem;
+
+        &::after {
+            content: "No favorites yet. Click the star icon on a book to save it for later!";
+            color: var(--text-main);
+            font-size: 1.1rem;
+            text-align: center;
+            opacity: 0.9;
+            max-width: 280px;
+            line-height: 1.5;
+        }
+    }
+}
+
+#favorites-dialog {
+    .dialog-content {
+        height: auto;
+        max-height: 56vh;
+        min-height: 15rem;
+        width: 90vw;
+        max-width: 45rem;
+        padding: 2rem;
+        position: relative;
+
+    }
+
+    .dialog-header {
+        position: absolute;
+        top: 31px;
+        right: 25px;
+        padding: 0;
+    }
+
+    .grid-img-title {
+        font-size: clamp(0.5rem, 0.45rem + 0.5vi, 0.6rem);
+
+    }
 }

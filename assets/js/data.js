@@ -172,7 +172,7 @@ const imageArray = [
     height: 1125,
     likes: 6660,
     liked: true,
-    favorite: true,
+    favorite: false,
     price: 49.99,
     comments: [
       { name: "Frodo", comment: "One ring to rule them all." },
