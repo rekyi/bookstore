@@ -100,10 +100,12 @@ main {
     img {
         width: 100%;
         height: auto;
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 705 / 1125;
+
         border: 3px solid var(--img-border);
         border-radius: 16px;
         object-fit: cover;
+        object-position: top;
 
         display: block;
 

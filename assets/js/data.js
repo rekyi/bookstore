@@ -76,21 +76,6 @@ const imageArray = [
   },
   {
     src: "assets/images/book06.webp",
-    alt: "cat with headset drinking Coca-Cola",
-    title: "RUSH B(OTTLE)",
-    width: 705,
-    height: 1125,
-    likes: 980,
-    liked: true,
-    favorite: false,
-    price: 12.0,
-    comments: [
-      { name: "Sam", comment: "Sugar rush incoming." },
-      { name: "Nina", comment: "Thirsty little guy." },
-    ],
-  },
-  {
-    src: "assets/images/book07.webp",
     alt: "cat with pancake on head",
     title: "BREAKFAST ON MY MIND",
     width: 705,
@@ -105,7 +90,7 @@ const imageArray = [
     ],
   },
   {
-    src: "assets/images/book08.webp",
+    src: "assets/images/book07.webp",
     alt: "cat sitting at a table alone",
     title: "TABLE FOR ONE",
     width: 705,
@@ -120,7 +105,7 @@ const imageArray = [
     ],
   },
   {
-    src: "assets/images/book09.webp",
+    src: "assets/images/book08.webp",
     alt: "cat looking shocked",
     title: "YOU PUSHED TO MAIN?!",
     width: 705,
@@ -135,7 +120,7 @@ const imageArray = [
     ],
   },
   {
-    src: "assets/images/book10.webp",
+    src: "assets/images/book09.webp",
     alt: "cat holding onto a table leg",
     title: "THE GREAT RESISTANCE",
     width: 705,
@@ -150,7 +135,7 @@ const imageArray = [
     ],
   },
   {
-    src: "assets/images/book11.webp",
+    src: "assets/images/book10.webp",
     alt: "cat holding another cat hostage with a water gun",
     title: "HOSTAGE SITUATION",
     width: 705,
@@ -165,7 +150,7 @@ const imageArray = [
     ],
   },
   {
-    src: "assets/images/book12.webp",
+    src: "assets/images/book11.webp",
     alt: "cat being eaten by a shark toy",
     title: "WHO'S THE BAIT NOW?",
     width: 705,
@@ -180,7 +165,7 @@ const imageArray = [
     ],
   },
   {
-    src: "assets/images/book13.webp",
+    src: "assets/images/book12.webp",
     alt: "cat as a dark lord sitting on a throne",
     title: "SAURON THE SMOL",
     width: 705,
@@ -192,6 +177,36 @@ const imageArray = [
     comments: [
       { name: "Frodo", comment: "One ring to rule them all." },
       { name: "Samwise", comment: "Bow to the dark lord." },
+    ],
+  },
+  {
+    src: "assets/images/book13.webp",
+    alt: "cat wearing a knight helmet in a dark fantasy landscape",
+    title: "MAIDENLESS BEHAVIOR",
+    width: 705,
+    height: 1125,
+    likes: 500,
+    liked: false,
+    favorite: false,
+    price: 19.99,
+    comments: [
+      { name: "Tarnished", comment: "Behold, dog!" },
+      { name: "LetMeSoloHer", comment: "I will protect him at all costs." },
+    ],
+  },
+  {
+    src: "assets/images/book14.webp",
+    alt: "cat rejecting the touch of god in creation of adam",
+    title: "THE CREATION OF NOPE",
+    width: 705,
+    height: 1125,
+    likes: 820,
+    liked: true,
+    favorite: false,
+    price: 34.99,
+    comments: [
+      { name: "Leo", comment: "Do not boop the snoot!" },
+      { name: "Michel", comment: "A true masterpiece." },
     ],
   },
 ];
