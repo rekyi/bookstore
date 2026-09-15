@@ -37,12 +37,12 @@ header {
     gap: 0.5rem;
 
     img {
-        width: 40px;
-        height: 40px;
+        width: 60px;
+        height: 60px;
 
         @media (min-width: 650px) {
-            width: 50px;
-            height: 50px;
+            width: 70px;
+            height: 70px;
         }
     }
 }
@@ -131,7 +131,7 @@ main {
     transform: translate(-50%, -50%);
 
     font-family: 'Abril Fatface', sans-serif;
-    font-size: clamp(0.5rem, 0.411rem + 0.446vi, 0.618rem);
+    font-size: clamp(0.5rem, 0.411rem + 0.446vi, 0.59rem);
     color: #101011;
     text-align: center;
     z-index: 10;
@@ -592,10 +592,10 @@ footer {
         align-items: center;
         gap: 0.5rem;
 
-        .cat-gif {
-            width: 20px;
-            height: 25px;
-            transform: translateY(-5px);
+        .cat-noted {
+            width: 25px;
+            height: 30px;
+            transform: translateY(-7px);
         }
     }
 }
@@ -611,7 +611,8 @@ footer {
     gap: 1rem;
 
     img {
-        height: 30px;
+        width: 70px;
+        height: auto;
     }
 }
 
