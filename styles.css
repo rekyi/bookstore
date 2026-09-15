@@ -420,6 +420,15 @@ figure {
     gap: 0.5rem;
 }
 
+.like-count {
+    font-variant-numeric: tabular-nums;
+}
+
+.checkmark {
+    width: 32px;
+    height: 32px;
+}
+
 .like-button {
     color: var(--dialog-step, #e74c3c);
     background: none;
