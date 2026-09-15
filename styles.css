@@ -698,7 +698,7 @@ footer {
     }
 
     .grid-img-title {
-        font-size: clamp(0.5rem, 0.45rem + 0.5vi, 0.5rem);
+        font-size: clamp(0.5rem, 0.45rem + 0.5vi, 0.6rem);
 
     }
 }
