@@ -160,6 +160,7 @@ function renderComments() {
 // Event-Listener
 function GridListeners() {
   document.getElementById("photo-grid").addEventListener("click", renderDialog);
+  document.getElementById("favorites-grid").addEventListener("click", renderDialog);
   document.getElementById("show-favorites").addEventListener("click", () => {
     renderFavorites();
     document.getElementById("favorites-dialog").showModal();
