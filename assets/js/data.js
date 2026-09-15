@@ -1,4 +1,4 @@
-const imageArray = [
+const booksArray = [
   {
     src: "assets/images/book01.webp",
     alt: "cat relaxing with shark",

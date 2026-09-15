@@ -2,20 +2,20 @@ let currentIndex = 0;
 
 // localStorage
 function saveToLocalStorage() {
-  localStorage.setItem("imageArray", JSON.stringify(imageArray));
+  localStorage.setItem("booksArray", JSON.stringify(booksArray));
 }
 
 function getFromLocalStorage() {
-  let savedData = JSON.parse(localStorage.getItem("imageArray")) ?? [];
+  let savedData = JSON.parse(localStorage.getItem("booksArray")) ?? [];
 
   if (!savedData.length) return;
 
-  for (let i = 0; i < imageArray.length; i++) {
+  for (let i = 0; i < booksArray.length; i++) {
     if (savedData[i]) {
-      imageArray[i].likes = savedData[i].likes;
-      imageArray[i].liked = savedData[i].liked;
-      imageArray[i].favorite = savedData[i].favorite;
-      imageArray[i].comments = savedData[i].comments;
+      booksArray[i].likes = savedData[i].likes;
+      booksArray[i].liked = savedData[i].liked;
+      booksArray[i].favorite = savedData[i].favorite;
+      booksArray[i].comments = savedData[i].comments;
     }
   }
 }
@@ -25,7 +25,7 @@ function renderImgs() {
   const contentRef = document.getElementById("photo-grid");
   let htmlContent = "";
 
-  for (let i = 0; i < imageArray.length; i++) {
+  for (let i = 0; i < booksArray.length; i++) {
     htmlContent += imgContentTemplate(i);
   }
   contentRef.innerHTML = htmlContent;
@@ -45,10 +45,10 @@ function renderDialog(event) {
 function changeDialog(step) {
   currentIndex += step;
 
-  if (currentIndex >= imageArray.length) {
+  if (currentIndex >= booksArray.length) {
     currentIndex = 0;
   } else if (currentIndex < 0) {
-    currentIndex = imageArray.length - 1;
+    currentIndex = booksArray.length - 1;
   }
   updateDialogContent();
 }
@@ -77,36 +77,36 @@ function updateDialogContent() {
 
 function updateDialogImage() {
   const dialogImg = document.getElementById("dialog-rendered");
-  dialogImg.src = imageArray[currentIndex].src;
-  dialogImg.alt = imageArray[currentIndex].alt;
-  dialogImg.width = imageArray[currentIndex].width;
-  dialogImg.height = imageArray[currentIndex].height;
+  dialogImg.src = booksArray[currentIndex].src;
+  dialogImg.alt = booksArray[currentIndex].alt;
+  dialogImg.width = booksArray[currentIndex].width;
+  dialogImg.height = booksArray[currentIndex].height;
 }
 
 function updateDialogInfo() {
-  document.getElementById("dialog-caption").textContent = imageArray[currentIndex].title;
-  document.getElementById("dialog-counter").textContent = `${currentIndex + 1} / ${imageArray.length} `;
-  document.getElementById("dialog-price").innerText = "$" + imageArray[currentIndex].price;
+  document.getElementById("dialog-caption").textContent = booksArray[currentIndex].title;
+  document.getElementById("dialog-counter").textContent = `${currentIndex + 1} / ${booksArray.length} `;
+  document.getElementById("dialog-price").innerText = "$" + booksArray[currentIndex].price;
 }
 
 // Favorite-Functions
 function toggleFavorite() {
-  imageArray[currentIndex].favorite = !imageArray[currentIndex].favorite;
+  booksArray[currentIndex].favorite = !booksArray[currentIndex].favorite;
   saveToLocalStorage();
 }
 
 function updateFavoriteDisplay() {
   const favBtn = document.getElementById("favorite-button");
 
-  favBtn.classList.toggle("is-favorite", imageArray[currentIndex].favorite === true);
+  favBtn.classList.toggle("is-favorite", booksArray[currentIndex].favorite === true);
 }
 
 function renderFavorites() {
   const favBookRef = document.getElementById("favorites-grid");
   let htmlContent = "";
 
-  for (let i = 0; i < imageArray.length; i++) {
-    if (imageArray[i].favorite === true) {
+  for (let i = 0; i < booksArray.length; i++) {
+    if (booksArray[i].favorite === true) {
       htmlContent += imgContentTemplate(i);
     }
   }
@@ -115,12 +115,12 @@ function renderFavorites() {
 
 // Like-Functions
 function toggleLike() {
-  if (imageArray[currentIndex].liked === true) {
-    imageArray[currentIndex].liked = false;
-    imageArray[currentIndex].likes -= 1;
+  if (booksArray[currentIndex].liked === true) {
+    booksArray[currentIndex].liked = false;
+    booksArray[currentIndex].likes -= 1;
   } else {
-    imageArray[currentIndex].liked = true;
-    imageArray[currentIndex].likes += 1;
+    booksArray[currentIndex].liked = true;
+    booksArray[currentIndex].likes += 1;
   }
   saveToLocalStorage();
 }
@@ -129,8 +129,8 @@ function updateLikeDisplay() {
   const likeBtn = document.getElementById("like-button");
   const likeCountRef = document.getElementById("like-count");
 
-  likeBtn.classList.toggle("is-liked", imageArray[currentIndex].liked === true);
-  likeCountRef.innerText = imageArray[currentIndex].likes;
+  likeBtn.classList.toggle("is-liked", booksArray[currentIndex].liked === true);
+  likeCountRef.innerText = booksArray[currentIndex].likes;
 }
 
 // Comment-Functions
@@ -141,7 +141,7 @@ function addComments() {
 
   if (!inputContentValue) return;
 
-  imageArray[currentIndex].comments.unshift({ name: inputNames[randomIndex], comment: inputContentValue });
+  booksArray[currentIndex].comments.unshift({ name: inputNames[randomIndex], comment: inputContentValue });
 
   inputContent.value = "";
   renderComments();
@@ -152,7 +152,7 @@ function renderComments() {
   let commentRef = document.getElementById("comments-list");
   commentRef.innerHTML = "";
 
-  for (let i = 0; i < imageArray[currentIndex].comments.length; i++) {
+  for (let i = 0; i < booksArray[currentIndex].comments.length; i++) {
     commentRef.innerHTML += commentsTemplate(i);
   }
 }
