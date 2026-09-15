@@ -53,11 +53,17 @@ function changeDialog(step) {
   updateDialogContent();
 }
 
-function onBackdropClick(event) {
-  const closeDialogOutside = document.getElementById("image-dialog");
+function getDialogs() {
+  const closeMainDialog = document.getElementById("image-dialog");
+  const closeFavDialog = document.getElementById("favorites-dialog");
 
-  if (event.target === closeDialogOutside) {
-    closeDialogOutside.close();
+  closeMainDialog.addEventListener("click", onBackdropClick);
+  closeFavDialog.addEventListener("click", onBackdropClick);
+}
+
+function onBackdropClick(event) {
+  if (event.target === event.currentTarget) {
+    event.currentTarget.close();
   }
 }
 
@@ -163,7 +169,6 @@ function GridListeners() {
 function DialogNavListeners() {
   document.getElementById("dialog-back").addEventListener("click", () => changeDialog(-1));
   document.getElementById("dialog-next").addEventListener("click", () => changeDialog(1));
-  document.getElementById("image-dialog").addEventListener("click", onBackdropClick);
 }
 
 function FavoriteListener() {
@@ -200,6 +205,7 @@ function init() {
   getFromLocalStorage();
   renderImgs();
   EventListeners();
+  getDialogs();
 }
 
 init();
