@@ -115,7 +115,7 @@ function renderFavorites() {
 
 // Like-Functions
 function toggleLike() {
-  if (booksArray[currentIndex].liked === true) {
+  if (booksArray[currentIndex].liked) {
     booksArray[currentIndex].liked = false;
     booksArray[currentIndex].likes -= 1;
   } else {

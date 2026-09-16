@@ -5,8 +5,8 @@ const booksArray = [
     title: "MY TEA AND HIM",
     width: 705,
     height: 1125,
-    likes: 1000,
-    liked: true,
+    likes: 999,
+    liked: false,
     favorite: false,
     price: 24.99,
     comments: [
