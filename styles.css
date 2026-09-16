@@ -13,6 +13,11 @@ header {
     background-color: var(--bg-secondary);
 }
 
+header button:focus-visible {
+    outline: 2px solid #d8d8d8;
+    outline-offset: 2px;
+}
+
 .header-content {
     max-width: 90rem;
     margin: auto;
