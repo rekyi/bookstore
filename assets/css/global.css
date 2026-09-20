@@ -45,9 +45,9 @@ p, h1, h2, h3, h4, h5, h6 {
     --img-border: #194553e1;
     --img-border-hover: #6bdde185;
 
-    --dialog-step: #FD5B4F;
-    --dialog-step-bg: #fd5b4f1a;
-    --dialog-step-hover: #fd5b4f33;
+    --dialog-accent: #FD5B4F;
+    --dialog-accent-bg: #fd5b4f1a;
+    --dialog-accent-hover: #fd5b4f33;
     --dialog-close: #0D3240;
     --dialog-close-hover: #124658;
 
