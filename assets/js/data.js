@@ -47,7 +47,7 @@ const booksArray = [
   {
     src: "assets/images/book04.webp",
     alt: "cat in front of the Eiffel Tower",
-    title: "BAGUETTES AND REGRETS",
+    title: "BAGUETTES & REGRETS",
     width: 705,
     height: 1125,
     likes: 2100,
